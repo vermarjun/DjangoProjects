@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/EmailApp.css' %}">
+</head>
+<body>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="messages">
+        <p class="message">{{message}}</p>
+    </div>
+    {% endfor %}
+    {% endif %}
+    <div class="titlebox">
+        <p class="title">Sign Up For Our NewLetter</p>
+    </div>
+    <div class="form">
+        <div class="formcontent">
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{forms}}
+                <input type="submit" value="Sing  Up" name="" id="">
+            </form>
+        </div>
+    </div>
+    <div class="titlebox">
+        <div class="title">
+            <h3>Number of users signed up for newseletter:</h3>
+        </div>
+    </div>
+    <div class="users">
+        <div class="usercont">
+            {% for x in User_List %}
+            <div class="card" >
+                {{x.Name}}
+                {{x.Email}}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

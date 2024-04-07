@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if messages %}
+    {% for message in messages%}
+        <p>{{message}}</p>
+    {%endfor%}
+    {%endif%}
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{forms}}
+        <input type="submit" value="verify">
+    </form>
+    
+</body>
+</html>
